@@ -3,7 +3,7 @@ import { Card, Col, Row } from "antd";
 import TaskCard from "./TaskCard";
 const TaskManagement = () => {
   return (
-    <Row gutter={16}>
+    <Row gutter={16} style={{ marginTop: "10px" }}>
       <Col>
         <Card title="Card title" bordered={false}>
           <TaskCard />
