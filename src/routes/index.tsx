@@ -1,16 +1,15 @@
-import React from 'react';
-import { Route, Routes } from 'react-router-dom';
-import TaskManagement from '../pages/task';
+import React from "react";
+import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
+import TaskManagement from "../pages/task";
 
-const AppRoutes=()=>{
-
-    
-
-    return (
-        <Routes>
-            <Route path='/task' element={<TaskManagement/>}/>
-        </Routes>
-    )
-}
+const AppRoutes = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<TaskManagement />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default AppRoutes;
