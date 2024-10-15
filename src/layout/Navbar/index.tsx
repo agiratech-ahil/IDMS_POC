@@ -4,7 +4,7 @@ import { Header } from 'antd/es/layout/layout';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import IdmsLogo from '../../assets/idmsLogo.svg';
-
+import './navbar.css';
 
 const Navbar: React.FC =()=>{
 
@@ -58,7 +58,7 @@ const Navbar: React.FC =()=>{
                         style={{ marginRight: '16px' }}
                         className='navbar-menu-button'
                     />
-                    <img src={IdmsLogo} alt='IDMS Logo' style={{ height: '50px' }} className='navbar-logo'/>
+                    <img src={IdmsLogo} alt='IDMS Logo' style={{ height: '50px', marginLeft: '1rem' }} className='navbar-logo'/>
                 </div>
 
 
