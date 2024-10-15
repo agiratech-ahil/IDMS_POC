@@ -4,7 +4,7 @@ Once you cloned the repo, run the following commands to get the project running:
 ```bash
 npm install
 
-vite
+npm start
 ```
 
 if you get an error with vite, try running:
@@ -12,7 +12,9 @@ if you get an error with vite, try running:
 ```bash
 npm install -g vite
 ```
-now your code should be served with npm start. Unlike CRA based servers, Vite does not open the browser automatically.
+now your code should be served with `npm start`.
+
+> Unlike CRA based servers.Vite does not open the browser automatically. But by adding some params in package.json we recreated the same behaviour similar to CRA's start script.
 
 You need to manually open the browser and enter the URL and port displayed in the terminal. After than, you cant start coding and see your changes in an instant.
 
