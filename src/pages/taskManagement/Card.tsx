@@ -1,6 +1,8 @@
 import { FC, useState } from "react";
 import { CSS } from "@dnd-kit/utilities";
 import { useSortable } from "@dnd-kit/sortable";
+import { Avatar, Tag, Tooltip } from "antd";
+import { AntDesignOutlined, UserOutlined } from "@ant-design/icons";
 export type CardType = {
   id: string;
   title: string;
@@ -8,7 +10,7 @@ export type CardType = {
   priority: string;
 };
 
-const Card: FC<CardType> = ({ id, title }) => {
+const Card: FC<CardType> = ({ id, title, priority }) => {
   const { attributes, listeners, setNodeRef, transform } = useSortable({
     id: id,
   });
@@ -16,6 +18,7 @@ const Card: FC<CardType> = ({ id, title }) => {
 
   const style = {
     width: 200,
+    height: 100,
     marginTop: "10px",
     boxShadow: isHovered
       ? " rgba(0, 0, 0, 0.35) 0px 5px 15px"
@@ -23,6 +26,8 @@ const Card: FC<CardType> = ({ id, title }) => {
     cursor: "pointer",
     padding: "10px",
     transform: CSS.Transform.toString(transform),
+    borderRadius: "10px",
+    background: "white",
   };
 
   return (
@@ -32,7 +37,38 @@ const Card: FC<CardType> = ({ id, title }) => {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <p>{title}</p>
+        <Tag bordered={false} color={priority === "high" ? "error" : "yellow"}>
+          {priority}
+        </Tag>
+        <p style={{ marginTop: "10px" }}>{title}</p>
+        <Avatar.Group
+          // max={{
+          //   count: item?.assigneeCount,
+          //   style: { color: "#f56a00", backgroundColor: "#fde3cf" },
+          // }}
+          style={{ float: "right", marginTop: "10px" }}
+        >
+          <Avatar icon={<UserOutlined />} size="small" />
+
+          <>
+            {" "}
+            <Avatar style={{ backgroundColor: "#f56a00" }} size="small">
+              K
+            </Avatar>
+            <Tooltip title="Ant User" placement="top">
+              <Avatar
+                style={{ backgroundColor: "#87d068" }}
+                icon={<UserOutlined />}
+                size="small"
+              />
+            </Tooltip>
+            <Avatar
+              style={{ backgroundColor: "#1677ff" }}
+              icon={<AntDesignOutlined />}
+              size="small"
+            />
+          </>
+        </Avatar.Group>
       </div>
     </div>
   );

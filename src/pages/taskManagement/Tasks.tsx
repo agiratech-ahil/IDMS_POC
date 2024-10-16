@@ -11,6 +11,12 @@ import {
 import { arrayMove, sortableKeyboardCoordinates } from "@dnd-kit/sortable";
 import Column, { ColumnType } from "./Column";
 import { useState } from "react";
+import { Button, Input, Typography } from "antd";
+import {
+  FilterOutlined,
+  PlusOutlined,
+  SearchOutlined,
+} from "@ant-design/icons";
 
 export default function App() {
   const data: ColumnType[] = [
@@ -75,12 +81,6 @@ export default function App() {
         {
           id: "Card7",
           title: "Navbar",
-          assignee: "Shan",
-          priority: "medium",
-        },
-        {
-          id: "Card8",
-          title: "Task Management",
           assignee: "Shan",
           priority: "medium",
         },
@@ -181,6 +181,64 @@ export default function App() {
       onDragEnd={handleDragEnd}
       onDragOver={handleDragOver}
     >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "20px",
+          maxWidth: "90%",
+        }}
+      >
+        <Typography
+          style={{
+            fontWeight: "600",
+
+            fontSize: "25px",
+            marginLeft: "20px",
+          }}
+        >
+          All Tasks
+        </Typography>
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+            alignContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Input
+            // size="large"
+            placeholder="Search"
+            style={{ width: "100%", height: "50px" }}
+            prefix={<SearchOutlined />}
+          />
+          <Button
+            icon={<FilterOutlined />}
+            size="large"
+            style={{
+              width: "80px",
+              border: "none",
+              background: "#8B93FF",
+              color: "white",
+              boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+              height: "50px",
+            }}
+          />
+          <Button
+            icon={<PlusOutlined />}
+            size="large"
+            style={{
+              width: "80px",
+              border: "none",
+              background: "#8B93FF",
+              color: "white",
+              boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
+              height: "50px",
+            }}
+          />
+        </div>
+      </div>
       <div
         className="App"
         style={{ display: "flex", flexDirection: "row", padding: "20px" }}
