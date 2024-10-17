@@ -1,50 +1,56 @@
-# React + TypeScript + Vite
+# Getting started with this repo
+Once you cloned the repo, run the following commands to get the project running:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+```bash
+npm install
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+npm start
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+if you get an error with vite, try running:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm install -g vite
 ```
+now your code should be served with `npm start`.
+
+> Unlike CRA based servers.Vite does not open the browser automatically. But by adding some params in package.json we recreated the same behaviour similar to CRA's start script.
+
+You need to manually open the browser and enter the URL and port displayed in the terminal. After than, you cant start coding and see your changes in an instant.
+
+# Branching strategy
+
+We are using GitFlow branching strategy. This means that we have two main branches:
+
+- main
+- development
+
+Main will only be used for production builds. Development will be used for development purposes.
+
+For each new feature or fix, we will create a new branch from the development branch. Make sure to name the branch to include the Jira ticket number.
+
+Once you are done with your changes, create a PR to the development branch.
+
+Once a PR is merged, delete the feature branch unless told otherwise by the lead or the PR creator. But default should be to delete the branch after merging.
+
+*PLEASE DO NOT PUSH TO MAIN AND DEVELOPMENT BRANCH DIRECTLY.*
+*PLEASE DO NOT MERGE A PULL REQUEST WITHOUT CODE REVIEW.*
+
+# General best practices
+
+- Always use functional components and hooks.
+- Follow best practices from Agira for React, there should be a repo of it.
+- Follow generic best practices for React, TypeScript, and Ant design.
+- Consider minimising the CSS and JS we deliver to the browser without sacrificing functionality. The less, the better.
+- Don't fix multiple bugs or features ina single PR.
+- Don't force push to a branch that has been pushed to the remote repository.
+- If you're stuck with git, ask for help.
+- Rebase your branch with development regularly to avoid conflicts.
+- If you're using a different editor, make sure to install the plugins for linting and formatting.
+- Don't push your formatting changes to the remote repository.
+- Only push changes that are related to the actual issues you're working on
+- If you want to change formatting, refactor, etc. Create a new branch and make the changes.
+- Don't write if conditions without braces.
+- Don't write switch cases without defaults and breaks.
+
+Keep this document updated with the latest changes.
