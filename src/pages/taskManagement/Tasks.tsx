@@ -17,6 +17,7 @@ import {
   PlusOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
+import Details from "./Details";
 
 export default function App() {
   const data: ColumnType[] = [
@@ -251,6 +252,7 @@ export default function App() {
             cards={column.cards}
           ></Column>
         ))}
+      <Details />
       </div>
     </DndContext>
   );

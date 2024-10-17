@@ -1,0 +1,33 @@
+.list{
+  height: 200px;
+  overflow: auto;
+}
+
+.list::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+.list::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Track color */
+  border-radius: 8px; /* Rounded corners for track */
+}
+
+.list::-webkit-scrollbar-thumb {
+  background: #888; /* Thumb color */
+  border-radius: 8px; /* Rounded corners for thumb */
+}
+
+.list::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Thumb color on hover */
+}
+
+/* For Firefox */
+.list {
+  scrollbar-width: thin; /* Set the width of the scrollbar */
+  scrollbar-color: #888 #f0f0f0; /* Thumb color and track color */
+}
+
+/* For Internet Explorer and Edge */
+.list {
+  -ms-overflow-style: -ms-autohiding-scrollbar; /* Hide scrollbar in IE/Edge */
+}
