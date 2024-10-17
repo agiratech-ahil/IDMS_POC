@@ -17,7 +17,7 @@ const PrimaryLayout: React.FC =()=>{
 
             <Layout style={{ flexDirection: 'row', height: '100%' }}>
                 <Sidebar/>
-                <Content style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <Content style={{ display: 'flex', flexDirection: 'column', height: '100%', backgroundColor: '#fcfcfd' }}>
                 
                     <Outlet/>
                 </Content>

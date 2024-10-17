@@ -100,21 +100,22 @@ const Sidebar: React.FC =()=>{
           breakpoint="lg"
           collapsedWidth={80}
           trigger={null}
-          style={{
+          style={{  
             height: '100%',
             // position: 'fixed',
             left: 0,
             top: 0,
             bottom: 0,
+            // backgroundColor: '#00498F'
           }}
         >
-          <div className="logo" style={{ height: '64px', margin: '16px', textAlign: 'center' }}>
+          {/* <div className="logo" style={{ height: '64px', margin: '16px', textAlign: 'center' }}>
             <img
               src={collapsed ? dashboardIconDefault : dashboardIconActive}
               alt="Logo"
               style={{ width: '40px', height: '40px' }}
             />
-          </div>
+          </div> */}
           <Menu
             theme="dark"
             mode="inline"
@@ -133,7 +134,7 @@ const Sidebar: React.FC =()=>{
               <Menu.Item key="/tasks/my_tasks" icon={<SolutionOutlined/>} onClick={handleSubMenuClick}>
                 My Tasks
               </Menu.Item>
-              <Menu.Item key="/tasks/all_tasks" icon={<UnorderedListOutlined/>} onClick={handleSubMenuClick}>
+              <Menu.Item key="/task" icon={<UnorderedListOutlined/>} onClick={handleSubMenuClick}>
                 All Tasks
               </Menu.Item>
               <Menu.Item key="/tasks/completed_tasks" icon={<HistoryOutlined/>} onClick={handleSubMenuClick}>
