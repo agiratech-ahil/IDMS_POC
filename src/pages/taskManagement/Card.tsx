@@ -17,7 +17,7 @@ const Card: FC<CardType> = ({ id, title, priority }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const style = {
-    width: 200,
+    width: 330,
     height: 100,
     marginTop: "10px",
     boxShadow: isHovered

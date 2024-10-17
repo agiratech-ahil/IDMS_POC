@@ -29,12 +29,12 @@ const Column: FC<ColumnType> = ({ id, title, cards }) => {
       <div
         ref={setNodeRef}
         style={{
-          width: "220px",
+          width: "350px",
           background: "#EEEEEE",
           marginRight: "10px",
           borderRadius: "10px",
           padding: "10px",
-          height: "70vh",
+          height: "80vh",
           boxShadow: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px",
         }}
       >
