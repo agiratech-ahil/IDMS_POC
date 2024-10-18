@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Layout, Menu, Button } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useTheme } from '../../ThemeContext';
+
 import documentsIconDefault from '../../assets/threeLayersDefault.svg';
 import documentsIconActive from '../../assets/threeLayersActive.svg';
 import dashboardIconDefault from '../../assets/statisticsDefault.svg';
@@ -22,6 +24,7 @@ const Sidebar: React.FC =()=>{
     const [ collapsed, setCollapsed ] = useState<boolean>(false);
     const sidebarRef = useRef<HTMLDivElement | null>(null);
     
+    const { isDarkMode } = useTheme();
 
     const getSelectedKeys=()=>{
         const path = location.pathname;
@@ -106,7 +109,7 @@ const Sidebar: React.FC =()=>{
             left: 0,
             top: 0,
             bottom: 0,
-            // backgroundColor: '#00498F'
+            backgroundColor: isDarkMode ? '#001529' : '#CDD3D6'
           }}
         >
           {/* <div className="logo" style={{ height: '64px', margin: '16px', textAlign: 'center' }}>
@@ -117,7 +120,7 @@ const Sidebar: React.FC =()=>{
             />
           </div> */}
           <Menu
-            theme="dark"
+            theme={ isDarkMode ? 'dark' : 'light'}
             mode="inline"
             selectedKeys={selectedKeys}
             openKeys={openKeys}
