@@ -1,6 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Layout, Menu, Button } from 'antd';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useTheme } from '../../ThemeContext';
+
 import documentsIconDefault from '../../assets/threeLayersDefault.svg';
 import documentsIconActive from '../../assets/threeLayersActive.svg';
 import dashboardIconDefault from '../../assets/statisticsDefault.svg';
@@ -22,6 +24,7 @@ const Sidebar: React.FC =()=>{
     const [ collapsed, setCollapsed ] = useState<boolean>(false);
     const sidebarRef = useRef<HTMLDivElement | null>(null);
     
+    const { isDarkMode } = useTheme();
 
     const getSelectedKeys=()=>{
         const path = location.pathname;
@@ -100,23 +103,24 @@ const Sidebar: React.FC =()=>{
           breakpoint="lg"
           collapsedWidth={80}
           trigger={null}
-          style={{
+          style={{  
             height: '100%',
             // position: 'fixed',
             left: 0,
             top: 0,
             bottom: 0,
+            backgroundColor: isDarkMode ? '#001529' : '#CDD3D6'
           }}
         >
-          <div className="logo" style={{ height: '64px', margin: '16px', textAlign: 'center' }}>
+          {/* <div className="logo" style={{ height: '64px', margin: '16px', textAlign: 'center' }}>
             <img
               src={collapsed ? dashboardIconDefault : dashboardIconActive}
               alt="Logo"
               style={{ width: '40px', height: '40px' }}
             />
-          </div>
+          </div> */}
           <Menu
-            theme="dark"
+            theme={ isDarkMode ? 'dark' : 'light'}
             mode="inline"
             selectedKeys={selectedKeys}
             openKeys={openKeys}
@@ -133,7 +137,7 @@ const Sidebar: React.FC =()=>{
               <Menu.Item key="/tasks/my_tasks" icon={<SolutionOutlined/>} onClick={handleSubMenuClick}>
                 My Tasks
               </Menu.Item>
-              <Menu.Item key="/tasks/all_tasks" icon={<UnorderedListOutlined/>} onClick={handleSubMenuClick}>
+              <Menu.Item key="/task" icon={<UnorderedListOutlined/>} onClick={handleSubMenuClick}>
                 All Tasks
               </Menu.Item>
               <Menu.Item key="/tasks/completed_tasks" icon={<HistoryOutlined/>} onClick={handleSubMenuClick}>

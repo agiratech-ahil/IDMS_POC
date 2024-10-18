@@ -1,12 +1,14 @@
-import React from 'react';
-import './App.css'
-import AppRoutes from './routes'
+import AppRoutes from "./routes";
+import 'antd/dist/reset.css';
+import { ThemeProvider } from "./ThemeContext";
 
-function App() {
-
+function App(){
+  
   return (
-    <AppRoutes/>
+    <ThemeProvider>
+      <AppRoutes/>
+    </ThemeProvider>
   )
 }
 
-export default App
+export default App;

@@ -1,0 +1,18 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+}
+
+.darkMode {
+    background-color: #36454F;
+    color: #ffffff;
+}
+
+.lightMode {
+    background-color: #F8F9F9;
+    color: #000000;
+}
+
