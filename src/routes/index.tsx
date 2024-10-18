@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes, BrowserRouter as Router } from "react-router-dom";
 import TaskManagement from "../pages/taskManagement/Tasks";
 import PrimaryLayout from "../layout/MainLayout";
-import Document from "../pages/documents";
+import Document from "../pages/documents/document";
 
 const AppRoutes = () => {
   return (
